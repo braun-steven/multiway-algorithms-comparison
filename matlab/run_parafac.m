@@ -50,7 +50,7 @@ end
 
 %% PARAFAC model and iteration test
 %addpath('..\drEEM_020\drEEM\nway')
-addpath('/home/slang/Downloads/nway331')
+addpath('nway')
 
 fprintf('Running parafac...')
 if RunCompTest
