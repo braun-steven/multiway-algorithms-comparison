@@ -55,7 +55,7 @@ addpath('nway');
 fprintf('Running parafac...');
 for i=3:10
     [Factors,it,err,corcondia] = parafac(X,i, parafac_options);
-    disp(['Number of components =', num2str(i)])
+    disp(['Number of components = ', num2str(i)])
     disp(['Loss = ', num2str(err)])
 end
 

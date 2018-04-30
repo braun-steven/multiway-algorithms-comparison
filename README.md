@@ -36,7 +36,7 @@ Both runs are started with the same options:
 
 Option | Value
 --- | ---
-number of components | 4
+number of components | 4..10
 max. iterations | 2500
 improvement tolerance threshold | 10e-6
 init method | random orthogonalized matrices
