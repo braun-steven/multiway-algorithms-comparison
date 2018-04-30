@@ -1,0 +1,8 @@
+Original EEM files: these are excitation emission matrices (EEMs) showing fluorescence intensity as a function of wavelength. 
+We have blank subtracted these results (water blank) and normalised to the intensity of the Water Raman peak. 
+
+Matlab outputs: show the EEMs of the PARAFAC modelled components.
+
+Matlab script: the script looks for the EEMs folder in the same parent folder and should run ok (fingers crossed). 
+
+Email: a.hartland@waikato.ac.nz for further explanation.
