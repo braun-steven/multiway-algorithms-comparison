@@ -10,14 +10,32 @@ import java.util.List;
 
 public class Main {
   private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
   public static void main(String[] args) throws IOException {
     // Options
     final int numStarts = 1;
-    final int numComponents = 4;
     final int maxIters = 2500;
     final double improvementTol = 10e-6;
     final PARAFAC.Initialization initMethod = PARAFAC.Initialization.RANDOM_ORTHOGONALIZED;
 
+    for (int i = 3; i <= 10; i++) {
+      PARAFAC parafac = buildParafacModel(numStarts, i, maxIters, improvementTol, initMethod);
+      logger.info("Number of components = " + i);
+      printFinalLossPerRun(parafac);
+    }
+
+    // Output
+
+    System.exit(0);
+  }
+
+  private static PARAFAC buildParafacModel(
+      int numStarts,
+      int numComponents,
+      int maxIters,
+      double improvementTol,
+      PARAFAC.Initialization initMethod)
+      throws IOException {
     // Setup PARAFAC
     PARAFAC parafac = new PARAFAC();
     parafac.setNumStarts(numStarts);
@@ -29,11 +47,7 @@ public class Main {
 
     // Run PARAFAC
     parafac.build(tensor);
-
-    // Output
-    printFinalLossPerRun(parafac);
-
-    System.exit(0);
+    return parafac;
   }
 
   /**
