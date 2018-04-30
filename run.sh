@@ -4,7 +4,7 @@ REPO_DIR="multiway-algorithms"
 
 if [ ! -d "$REPO_DIR" ]; then
     echo -e "Local multiway-algorithm repository not found. Cloning now."
-    git clone git@github.com:waikato-datamining/multiway-algorithms.git -b develop
+    git clone https://github.com/waikato-datamining/multiway-algorithms -b develop
     cd ${REPO_DIR}
 else
     echo -e "Updating local multiway-algorithm repository"
