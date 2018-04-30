@@ -17,13 +17,10 @@ REPO_DIR_NWAY="nway"
 if [ ! -d "$REPO_DIR_NWAY" ]; then
     echo -e "Local nway-toolbox repository not found. Cloning now."
     git clone https://github.com/andrewssobral/nway.git
-    cd ..
 fi
+cd ..
 
 cd ${REPO_DIR_MW_ALGS}
 echo -e "Installing multiway-algorithm maven package locally."
 mvn install -Dmaven.test.skip=true
 cd ..
-
-echo -e "Starting Main class"
-mvn install exec:java

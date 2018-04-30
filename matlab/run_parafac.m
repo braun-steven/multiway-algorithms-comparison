@@ -49,7 +49,6 @@ for i=3:m
 end
 
 %% PARAFAC model and iteration test
-%addpath('..\drEEM_020\drEEM\nway')
 addpath('nway')
 
 fprintf('Running parafac...')
@@ -63,14 +62,13 @@ F1 = Factors{1}; % per sample
 F2 = Factors{2}; % per Emmission?
 F3 = Factors{3}; % per Excitation?
 
-it
-err
-corcondia
+Loss = err
+Loss
 
 %Creates Component Plots
-for i = 1:size(F2,2)
-    figure; contour(EmAx,ExAx,F2(:,i)*F3(:,i)');
-    xlabel('Incident Wavelength (nm)'); ylabel('Fluorescence Wavelength (nm)');
-    figure; surf(EmAx,ExAx,F2(:,i)*F3(:,i)');
-    xlabel('Incident Wavelength (nm)'); ylabel('Fluorescence Wavelength (nm)');
-end
+%for i = 1:size(F2,2)
+%    figure; contour(EmAx,ExAx,F2(:,i)*F3(:,i)');
+%    xlabel('Incident Wavelength (nm)'); ylabel('Fluorescence Wavelength (nm)');
+%    figure; surf(EmAx,ExAx,F2(:,i)*F3(:,i)');
+%    xlabel('Incident Wavelength (nm)'); ylabel('Fluorescence Wavelength (nm)');
+%end
