@@ -12,11 +12,12 @@ RunCompTest = 0; % 1 = run component number test, 0 = do not run
 k_max = 10; % max number of components
 j_max = 3; % max number of repeats at each components
 userComp = 4; % if RunCompTest == 1, the program will ask for the component number
-init_method = 2 % Fit SVD vectors
-scaling = 2 % no output scaling applied
-convergence_strategy = 0
-plotting_options = 0
-parafac_options = [ convergence_strategy init_method plotting_options scaling ]
+init_method = 2; % Fit SVD vectors
+scaling = 2; % no output scaling applied
+convergence_strategy = 0;
+plotting_options = 0;
+show_fit = 0;
+parafac_options = [ convergence_strategy init_method plotting_options scaling show_fit];
 %  #### END CONFIGURATION #####
 
 %% file input
@@ -25,7 +26,7 @@ files = dir(fileLoc);
 [m,~] = size(files);
 
 for i=3:m
-    filename = files(i,1).name
+    filename = files(i,1).name;
     IDo{i-2,1} = filename;
 
     fid=fopen(filename);
@@ -62,7 +63,7 @@ F1 = Factors{1}; % per sample
 F2 = Factors{2}; % per Emmission?
 F3 = Factors{3}; % per Excitation?
 
-Loss = err
+Loss = err;
 Loss
 
 %Creates Component Plots
