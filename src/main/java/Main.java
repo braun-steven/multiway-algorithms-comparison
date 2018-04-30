@@ -2,16 +2,20 @@ import nz.ac.waikato.cms.adams.multiway.algorithm.PARAFAC;
 import nz.ac.waikato.cms.adams.multiway.algorithm.stopping.CriterionUtils;
 import nz.ac.waikato.cms.adams.multiway.data.DataReader;
 import nz.ac.waikato.cms.adams.multiway.data.tensor.Tensor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.List;
 
 public class Main {
+  private static final Logger logger = LoggerFactory.getLogger(Main.class);
   public static void main(String[] args) throws IOException {
-
     // Options
-    final int numStarts = 10;
+    final int numStarts = 3;
     final int numComponents = 4;
+    final int maxIters = 2500;
+    final double improvementTol = 10e-6;
     final PARAFAC.Initialization initMethod = PARAFAC.Initialization.RANDOM_ORTHOGONALIZED;
 
     // Setup PARAFAC
@@ -19,8 +23,8 @@ public class Main {
     parafac.setNumStarts(numStarts);
     parafac.setNumComponents(numComponents);
     parafac.setInitMethod(initMethod);
-    parafac.addStoppingCriterion(CriterionUtils.iterations(2500));
-    parafac.addStoppingCriterion(CriterionUtils.improvement(10e-5));
+    parafac.addStoppingCriterion(CriterionUtils.iterations(maxIters));
+    parafac.addStoppingCriterion(CriterionUtils.improvement(improvementTol));
     final Tensor tensor = loadData();
 
     // Run PARAFAC
@@ -28,6 +32,8 @@ public class Main {
 
     // Output
     printFinalLossPerRun(parafac);
+
+    System.exit(0);
   }
 
   /**
@@ -40,7 +46,7 @@ public class Main {
     for (int i = 0; i < lossHistory.size(); i++) {
       List<Double> loss = lossHistory.get(i);
       int lastIdx = loss.size() - 1;
-      System.out.println("loss at run " + i + " = " + loss.get(lastIdx));
+      logger.info("loss at run " + i + " = " + loss.get(lastIdx));
     }
   }
 

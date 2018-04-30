@@ -17,4 +17,4 @@ mvn install -Dmaven.test.skip=true
 cd ..
 
 echo -e "Starting Main class"
-mvn exec:java
+mvn install exec:java
