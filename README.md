@@ -40,3 +40,15 @@ number of components | 4..10
 max. iterations | 2500
 improvement tolerance threshold | 10e-6
 init method | random orthogonalized matrices
+
+### Results
+number of components | nway loss | multiway-algorithms loss
+:---: | ---: | ---:
+3 | 562.3193 | 562.6590
+4 | 413.7502 | 413.9942
+5 | 306.6297  | 307.1157
+6 | 217.8061| 218.3507
+7 | 175.0781 | 175.6058
+8 | 144.0486 | 145.9342
+9 | 122.1815 | 126.5388
+10 | 104.1776 | 109.5957
