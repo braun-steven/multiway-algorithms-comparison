@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github</groupId>
-    <artifactId>multiwayalgorithms-test</artifactId>
+    <artifactId>multiwayalgorithmstest</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -35,7 +35,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <version>1.6.0</version>
                 <executions>
                     <execution>
                         <goals>
