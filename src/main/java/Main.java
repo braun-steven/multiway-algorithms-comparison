@@ -12,7 +12,7 @@ public class Main {
   private static final Logger logger = LoggerFactory.getLogger(Main.class);
   public static void main(String[] args) throws IOException {
     // Options
-    final int numStarts = 3;
+    final int numStarts = 1;
     final int numComponents = 4;
     final int maxIters = 2500;
     final double improvementTol = 10e-6;
@@ -43,10 +43,9 @@ public class Main {
    */
   private static void printFinalLossPerRun(PARAFAC parafac) {
     final List<List<Double>> lossHistory = parafac.getLossHistory();
-    for (int i = 0; i < lossHistory.size(); i++) {
-      List<Double> loss = lossHistory.get(i);
+    for (List<Double> loss : lossHistory) {
       int lastIdx = loss.size() - 1;
-      logger.info("loss at run " + i + " = " + loss.get(lastIdx));
+      logger.info("Loss = " + loss.get(lastIdx));
     }
   }
 
