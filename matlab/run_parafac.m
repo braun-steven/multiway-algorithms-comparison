@@ -17,7 +17,6 @@ scaling = 2; % no output scaling applied
 convergence_strategy = 0;
 plotting_options = 0;
 show_fit = NaN;
-parafac_options = [ convergence_strategy init_method plotting_options scaling show_fit];
 %  #### END CONFIGURATION #####
 
 %% file input
@@ -53,10 +52,17 @@ end
 addpath('nway');
 
 fprintf('Running parafac...');
-for i=3:10
-    [Factors,it,err,corcondia] = parafac(X,i, parafac_options);
-    disp(['Number of components = ', num2str(i)])
-    disp(['Loss = ', num2str(err)])
+for init=1:2
+    for i=3:10
+        parafac_options = [ convergence_strategy init plotting_options scaling show_fit ];
+        [Factors,it,err,corcondia] = parafac(X,i, parafac_options);
+        if init == 1
+            initstr = "Random Orthogonalized"
+        else
+            initstr = "SVD"
+        disp(['(', initstr, ')Number of components = ', num2str(i)])
+        disp(['(', initstr, ')Loss = ', num2str(err)])
+    end
 end
 
 
