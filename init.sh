@@ -22,5 +22,5 @@ cd ..
 
 cd ${REPO_DIR_MW_ALGS}
 echo -e "Installing multiway-algorithm maven package locally."
-mvn install -Dmaven.test.skip=true
+mvn install -Dmaven.test.skip=true -Dmaven.javadoc.skip=true
 cd ..
