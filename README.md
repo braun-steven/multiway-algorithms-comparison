@@ -39,7 +39,7 @@ Option | Value
 number of components | 4..10
 max. iterations | 2500
 improvement tolerance threshold | 10e-6
-init method | random orthogonalized matrices
+init method | {random orthogonalized matrices, SVD}
 
 ### Results
 number of components | nway loss (random orth. init)| mwa loss (random orth. init) | nway loss (SVD init)| mwa loss (SVD init)
