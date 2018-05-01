@@ -60,6 +60,7 @@ for init=1:2
             initstr = "Random Orthogonalized"
         elseif init == 1
             initstr = "SVD"
+        end
         disp(['(', initstr, ')Number of components = ', num2str(i)])
         disp(['(', initstr, ')Loss = ', num2str(err)])
     end
