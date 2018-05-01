@@ -16,12 +16,16 @@ public class Main {
     final int numStarts = 1;
     final int maxIters = 2500;
     final double improvementTol = 10e-6;
-    final PARAFAC.Initialization initMethod = PARAFAC.Initialization.RANDOM_ORTHOGONALIZED;
 
-    for (int i = 3; i <= 10; i++) {
-      PARAFAC parafac = buildParafacModel(numStarts, i, maxIters, improvementTol, initMethod);
-      logger.info("Number of components = " + i);
-      printFinalLossPerRun(parafac);
+    for (PARAFAC.Initialization init :
+        new PARAFAC.Initialization[] {
+          PARAFAC.Initialization.SVD, PARAFAC.Initialization.RANDOM_ORTHOGONALIZED
+        }) {
+      for (int i = 3; i <= 10; i++) {
+        PARAFAC parafac = buildParafacModel(numStarts, i, maxIters, improvementTol, init);
+        logger.info("(" + init + ") Number of components = " + i);
+        printFinalLossPerRun(parafac);
+      }
     }
 
     // Output
