@@ -56,9 +56,9 @@ for init=1:2
     for i=3:10
         parafac_options = [ convergence_strategy init plotting_options scaling show_fit ];
         [Factors,it,err,corcondia] = parafac(X,i, parafac_options);
-        if init == 1
+        if init == 2
             initstr = "Random Orthogonalized"
-        else
+        elseif init == 1
             initstr = "SVD"
         disp(['(', initstr, ')Number of components = ', num2str(i)])
         disp(['(', initstr, ')Loss = ', num2str(err)])
