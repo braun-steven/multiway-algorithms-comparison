@@ -54,6 +54,8 @@ public class ReplicateInitialScript {
     // Print results
     loadings.forEach((name, loading) -> logger.info("Loading " + name + ":\n" + loading));
     logger.info("Loss: " + loss);
+
+    System.exit(0);
   }
 
   /**
